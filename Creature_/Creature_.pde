@@ -1,15 +1,30 @@
+
+float y = 200;
+float speed = 0;
+float gravity = 0.01;
+
+
+
+
+
 void setup(){
-  size(200,200);
+  size(640,360);
   
 }
 
 void draw(){
-  background(175,100,220);
+  background(175,110,300);
 
   ellipseMode(CENTER);
   rectMode(CENTER);
   
-  translate(100,100);
+  y = y + speed;
+  speed = speed + gravity;
+  if(y > 300){
+  speed = speed * -0.95;
+  y = 300;
+  }
+  translate(width/2,y);
   
   
   //body
