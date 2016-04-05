@@ -31,4 +31,12 @@ class Drop{
     
     }
   }
+//function for when drop is caught
+void caught(){
+  //drop stop or stop drop 
+  speed = 0;
+  y = -1000; 
+}
+  
+  // move drop
 }
