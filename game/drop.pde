@@ -3,6 +3,8 @@ class Drop{
   float speed;
   color c;
   float r;
+  //keep track of wether drop is
+  boolean finished = false;
   
   Drop(){
     r = 8;
@@ -32,11 +34,15 @@ class Drop{
     }
   }
 //function for when drop is caught
-void caught(){
-  //drop stop or stop drop 
-  speed = 0;
-  y = -1000; 
-}
+//void caught(){
+//  //drop stop or stop drop 
+//  speed = 0;
+//  y = -1000; 
+//}
   
-  // move drop
+//  // move drop
+//}
+void finished(){
+  finished = true;
+}
 }
