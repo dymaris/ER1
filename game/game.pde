@@ -17,7 +17,7 @@ PFont f;
 void setup() {
   size(640, 360);
   catcher = new Catcher(32);
-  drops = new Drop[50];
+  drops = new Drop[100];
   timer = new Timer(300);
   timer.start();
   f = createFont("Arial", 12, true);
@@ -31,6 +31,10 @@ void draw() {
 
 
   if (gameOver) {
+    textFont(f, 40);
+    textAlign(CENTER);
+    fill(255, 0, 0);
+    text("GAME OVER", width/2, height/2);
   } else {
 
 
@@ -38,7 +42,7 @@ void draw() {
     catcher.setLocation(mouseX, mouseY);
     catcher.display();
     // check the timer
-    
+
     if (timer.isFinished()) {
       //init one drop
 
@@ -58,13 +62,16 @@ void draw() {
         drops[i].display();
         if (drops[i].reachedBottom()) {
           levelCounter++;
+          lives--;
+          drops[i].finished();
           if (lives<=0) {
+            gameOver=true;
           }
         }
-       
+
         //if statement for intersection
         if (catcher.intersect(drops[i])) {
-          
+
           drops[i].finished();
           levelCounter++;
           score++;
@@ -78,5 +85,11 @@ void draw() {
       totalDrops=0;
       timer.setTime(constrain(300-level*25, 0, 300));
     }
+    textFont(f, 14);
+    fill(0);
+    text("lives left:" + lives, 10, 20);
+    rect(10, 24, lives*10, 10);
+    text("Level;" + level, 300, 20);
+    text("Score;" + score, 300, 40);
   }
 }
