@@ -4,7 +4,7 @@ class Catcher {
   float col;
   Catcher (float tempR) {
     r = tempR;
-    col = color (50, 10, 10);
+    col = color (255, 255, 255);
     x= 0;
     y = 0;
   }
@@ -15,8 +15,8 @@ class Catcher {
 
 
   void display() {
-    stroke(0);
-    fill(col);
+    stroke(255,255,255);
+    fill(255,255,255);
     ellipse(x, y, r*2, r*2);
   }
   // function for drop/catcher intersection
